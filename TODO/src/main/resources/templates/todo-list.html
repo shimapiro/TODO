@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Todo List</title>
+	<link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+	<h1>Todo List</h1>
+	<a href="/create">新しいタスク</a>
+	<ul>
+		<li th:each="task : ${tasks}">
+			<span th:text="${task.title}"></span>
+			<span th:text="${task.description}"></span>
+			<span th:text="${task.dueDate}"></span>
+
+			<a th:href="@{'/toggle/'+${task.id}}" th:if="${!task.completed}">完了にする</a>
+			<a th:href="@{'/toggle/'+${task.id}}" th:if="${task.completed}">未完了にする</a>
+
+			<a th:href="@{'/details/'+${task.id}}">詳細を見る</a>
+			<a th:href="@{'/delete/' + ${task.id}}">削除</a>
+		</li>
+	</ul>
+</body>
+
+</html>

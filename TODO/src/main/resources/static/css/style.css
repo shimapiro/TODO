@@ -1,0 +1,103 @@
+/* ベーススタイル */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa; /* 全体の背景色 */
+    color: #343a40; /* テキストの基本色 */
+    margin: 0 auto;
+    padding: 0;
+    line-height: 1.6;
+    max-width: 900px;
+}
+
+h1, h2, h3 {
+    color: #007bff; /* タイトルのアクセントカラー */
+}
+
+a {
+    color: #007bff; /* リンクの色 */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #0056b3; /* リンクのホバー時の色 */
+}
+
+/* コンテナのスタイル */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* カード風の影 */
+}
+
+/* ボタンスタイル */
+button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* フォームスタイル */
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form textarea,
+form input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+form textarea {
+    height: 100px;
+    resize: none;
+}
+
+/* リストスタイル */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e9ecef;
+    margin: 10px 0;
+    padding: 10px 15px;
+    border-radius: 4px;
+}
+
+ul li span {
+    flex: 1;
+}
+
+ul li a {
+    margin-left: 10px;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #6c757d; /* 完了済みのタスクの色 */
+}
