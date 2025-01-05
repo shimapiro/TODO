@@ -22,6 +22,7 @@ import com.example.demo.service.TodoService;
 public class TodoController {
 	
 
+
     // サービスクラスを利用する
     private final TodoService todoService;
 
