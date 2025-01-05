@@ -20,6 +20,7 @@ import com.example.demo.service.TodoService;
 @RestController
 @RequestMapping("/api/todos") // このクラスは /api/todos に関連付けられる
 public class TodoController {
+	
 
     // サービスクラスを利用する
     private final TodoService todoService;
