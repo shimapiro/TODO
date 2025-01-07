@@ -33,15 +33,20 @@ public class TodoViewController {
 	}
 
 	@PostMapping("/create")
-	public String createTodo(@RequestParam String title, @RequestParam String description,
-			@RequestParam(required = false) String dueDate) {
+	public String createTodo(@RequestParam String title, 
+							 @RequestParam String description,
+							 @RequestParam(required = false) String dueDate) {
 		Todo todo = new Todo();
 		todo.setTitle(title);
 		todo.setDescription(description);
+		
+		
 		if (dueDate != null && !dueDate.isEmpty()) {
 			todo.setDueDate(LocalDate.parse(dueDate));
 		}
 		todoService.createOrUpdateTodo(todo);
+		
+		
 		return "redirect:/";
 	}
 
