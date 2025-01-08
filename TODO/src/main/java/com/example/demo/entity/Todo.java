@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -41,22 +43,22 @@ public class Todo {
 	@Column(name = "due_date")
 	private LocalDate dueDate;
 
-	public LocalDate getDueDate() {
-		return dueDate;
-	}
+	@Column(nullable = false)
+	private String category;
 
-	public void setDueDate(LocalDate dueDate) {
-		this.dueDate = dueDate;
+	public enum Priority {
+		LOW, MEDIUM, HIGH
 	}
 
 	@Column(nullable = false)
-	private String priority;
+	@Enumerated(EnumType.STRING)
+	private Priority priority;
 
-	public String getPriority() {
+	public Priority getPriority() {
 		return priority;
 	}
 
-	public void setPriority(String priority) {
+	public void setPriority(Priority priority) {
 		this.priority = priority;
 	}
 

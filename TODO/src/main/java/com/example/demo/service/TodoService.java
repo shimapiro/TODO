@@ -32,4 +32,9 @@ public class TodoService {
 	public void deleteTodoById(Integer id) {
 		todoRepository.deleteById(id);
 	}
+	
+	public List<Todo> searchTodos(String keyword){
+		return todoRepository.findByTitleContainingIgnoreCaseOrDescriptionContainingIgnoreCase(keyword, keyword);
+	}
+	
 }

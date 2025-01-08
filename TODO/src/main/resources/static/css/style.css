@@ -1,8 +1,7 @@
-/* ベーススタイル */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa; /* 全体の背景色 */
-    color: #343a40; /* テキストの基本色 */
+    background-color: #f8f9fa; 
+    color: #343a40; 
     margin: 0 auto;
     padding: 0;
     line-height: 1.6;
@@ -10,30 +9,30 @@ body {
 }
 
 h1, h2, h3 {
-    color: #007bff; /* タイトルのアクセントカラー */
+    color: #007bff; 
 }
 
 a {
-    color: #007bff; /* リンクの色 */
+    color: #007bff;
     text-decoration: none;
     font-weight: bold;
 }
 
 a:hover {
-    color: #0056b3; /* リンクのホバー時の色 */
+    color: #0056b3; 
 }
 
-/* コンテナのスタイル */
+
 .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
     background-color: #ffffff;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* カード風の影 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
-/* ボタンスタイル */
+
 button {
     background-color: #007bff;
     color: #ffffff;
@@ -49,7 +48,7 @@ button:hover {
     background-color: #0056b3;
 }
 
-/* フォームスタイル */
+
 form label {
     display: block;
     margin-bottom: 8px;
@@ -58,7 +57,8 @@ form label {
 
 form input[type="text"],
 form textarea,
-form input[type="date"] {
+form input[type="date"],
+form select {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -73,7 +73,7 @@ form textarea {
     resize: none;
 }
 
-/* リストスタイル */
+
 ul {
     list-style: none;
     padding: 0;
@@ -99,5 +99,19 @@ ul li a {
 
 .completed {
     text-decoration: line-through;
-    color: #6c757d; /* 完了済みのタスクの色 */
+    color: #6c757d;
+
 }
+
+.low {
+    background-color: #d1ecf1;
+}
+
+.medium {
+    background-color: #ffeeba; 
+}
+
+.high {
+    background-color: #f8d7da;
+}
+

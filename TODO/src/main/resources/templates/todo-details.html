@@ -11,6 +11,7 @@
 	<h1>タスクの詳細</h1>
 	<p>タイトル:<span th:text="${task.title}"></span></p>
 	<p>説明：<span th:text="${task.description}"></span></p>
+	<p>カテゴリー：<span th:text="${task.category}"></span></p>
 	<p>締切日：<span th:text="${task.dueDate}"></span></p>
 	<p>状態：<span th:text="${task.completed ? '完了':'未完了'}"></span></p>
 	<p>作成日：<span th:text="${task.createdAt}"></span></p>

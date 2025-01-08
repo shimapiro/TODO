@@ -9,10 +9,15 @@
 
 <body>
 	<h1>Todo List</h1>
+	<form action="/" method="get" style="margin-bottom: 20px;">
+		<input type="text" name="keyword" placeholder="タスクを検索"/>
+		<button type="submit">検索</button>
+	</form>
 	<a href="/create">新しいタスク</a>
 	<ul>
-		<li th:each="task : ${tasks}">
+		<li th:each="task : ${tasks}" th:classappend="${task.priority.name().toLowerCase()}">
 			<span th:text="${task.title}"></span>
+			<span th:text="${task.category}"></span>
 			<span th:text="${task.description}"></span>
 			<span th:text="${task.dueDate}"></span>
 

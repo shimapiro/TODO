@@ -14,6 +14,18 @@
 		<label for="description">説明:</label>
 		<textarea id="description" name="description" required></textarea>
 		<br>
+		<label for="category">カテゴリー：</label>
+		<select id="category" name="category" required>
+			<option value="仕事">仕事</option>			
+			<option value="趣味">趣味</option>			
+			<option value="プライベート">プライベート</option>			
+		</select>
+		<label for="priority">優先度：</label>
+		<select id="priority" name="priority" required>
+			<option value="LOW">低い</option>			
+			<option value="MEDIUM">普通</option>			
+			<option value="HIGH">高い</option>			
+		</select>
 		<label for="dueDate">締切日</label>
 		<input type="date" id="dueDate" name="dueDate">
 		<br>

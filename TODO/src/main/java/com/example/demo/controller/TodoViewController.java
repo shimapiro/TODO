@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entity.Todo;
+import com.example.demo.entity.Todo.Priority;
 import com.example.demo.service.TodoService;
 
 @Controller
@@ -22,8 +23,12 @@ public class TodoViewController {
 	}
 
 	@GetMapping("/")
-	public String viewTodos(Model model) {
-		model.addAttribute("tasks", todoService.getAllTodos());
+	public String viewTodos(@RequestParam(required = false)String keyword, Model model) {
+		if(keyword !=null && !keyword.isEmpty()) {
+			model.addAttribute("tasks",todoService.searchTodos(keyword));
+		}else{
+			model.addAttribute("tasks",todoService.getAllTodos());
+		}
 		return "todo-list";
 	}
 
@@ -35,11 +40,14 @@ public class TodoViewController {
 	@PostMapping("/create")
 	public String createTodo(@RequestParam String title, 
 							 @RequestParam String description,
+							 @RequestParam String category,
+							 @RequestParam String priority,
 							 @RequestParam(required = false) String dueDate) {
 		Todo todo = new Todo();
 		todo.setTitle(title);
 		todo.setDescription(description);
-		
+		todo.setCategory(category);
+		todo.setPriority(Priority.valueOf(priority));
 		
 		if (dueDate != null && !dueDate.isEmpty()) {
 			todo.setDueDate(LocalDate.parse(dueDate));
