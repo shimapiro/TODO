@@ -61,7 +61,7 @@ form input[type="date"],
 form select {
     width: 100%;
     padding: 10px;
-    margin-bottom: 15px;
+    margin: 8px 0;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 14px;

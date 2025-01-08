@@ -13,7 +13,17 @@
 		<input type="text" name="keyword" placeholder="タスクを検索"/>
 		<button type="submit">検索</button>
 	</form>
+	
+	<form action="/" method="get" style="margin-bottom: 20px;">
+		<select name="sortBy">
+			<option value="dueDate">締め切り日順</option>
+			<option value="priority">優先度準</option>
+		</select>
+		<button type="submit">並べ替え</button>
+	</form>
+	
 	<a href="/create">新しいタスク</a>
+	<p>優先度:赤＞黄＞青</p>
 	<ul>
 		<li th:each="task : ${tasks}" th:classappend="${task.priority.name().toLowerCase()}">
 			<span th:text="${task.title}"></span>

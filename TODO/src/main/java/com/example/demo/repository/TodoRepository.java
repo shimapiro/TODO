@@ -10,4 +10,6 @@ import com.example.demo.entity.Todo;
 @Repository
 public interface TodoRepository extends JpaRepository<Todo,Integer>{
 		List<Todo> findByTitleContainingIgnoreCaseOrDescriptionContainingIgnoreCase(String title,String description);
+		List<Todo> findAllByOrderByDueDateAsc();
+		List<Todo> findAllByOrderByPriorityDesc();
 }

@@ -47,8 +47,23 @@ public class Todo {
 	private String category;
 
 	public enum Priority {
-		LOW, MEDIUM, HIGH
+		LOW("低い"), 
+		MEDIUM("普通"), 
+		HIGH("高い");
+		
+		
+		private final String jabaneselabel;
+		
+		Priority(String jabaneselabel){
+			this.jabaneselabel=jabaneselabel;
+		}
+
+		
+		public String getLabel() {
+			return jabaneselabel;
+		}
 	}
+	
 
 	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)

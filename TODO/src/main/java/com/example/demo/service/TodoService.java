@@ -37,4 +37,14 @@ public class TodoService {
 		return todoRepository.findByTitleContainingIgnoreCaseOrDescriptionContainingIgnoreCase(keyword, keyword);
 	}
 	
+	public List<Todo> getsorTodos(String sortBy){
+		if ("dueDate".equals(sortBy)) {
+			return todoRepository.findAllByOrderByDueDateAsc();
+		}else if ("priority".equals(sortBy)) {
+			return todoRepository.findAllByOrderByPriorityDesc();
+		}
+		
+		return todoRepository.findAll();
+	}
+	
 }

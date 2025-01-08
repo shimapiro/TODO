@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,12 +24,20 @@ public class TodoViewController {
 	}
 
 	@GetMapping("/")
-	public String viewTodos(@RequestParam(required = false)String keyword, Model model) {
-		if(keyword !=null && !keyword.isEmpty()) {
-			model.addAttribute("tasks",todoService.searchTodos(keyword));
-		}else{
-			model.addAttribute("tasks",todoService.getAllTodos());
+	public String viewTodos(@RequestParam(required = false) String keyword,
+			@RequestParam(required = false) String sortBy,
+			Model model) {
+		
+		List<Todo> tasks;
+
+		if (keyword != null && !keyword.isEmpty()) {
+			tasks = todoService.searchTodos(keyword);
+		} else if (sortBy != null && !sortBy.isEmpty()) {
+			tasks = todoService.getsorTodos(sortBy);
+		} else {
+			tasks = todoService.getAllTodos();
 		}
+		model.addAttribute("tasks", tasks);
 		return "todo-list";
 	}
 
@@ -38,23 +47,22 @@ public class TodoViewController {
 	}
 
 	@PostMapping("/create")
-	public String createTodo(@RequestParam String title, 
-							 @RequestParam String description,
-							 @RequestParam String category,
-							 @RequestParam String priority,
-							 @RequestParam(required = false) String dueDate) {
+	public String createTodo(@RequestParam String title,
+			@RequestParam String description,
+			@RequestParam String category,
+			@RequestParam String priority,
+			@RequestParam(required = false) String dueDate) {
 		Todo todo = new Todo();
 		todo.setTitle(title);
 		todo.setDescription(description);
 		todo.setCategory(category);
 		todo.setPriority(Priority.valueOf(priority));
-		
+
 		if (dueDate != null && !dueDate.isEmpty()) {
 			todo.setDueDate(LocalDate.parse(dueDate));
 		}
 		todoService.createOrUpdateTodo(todo);
-		
-		
+
 		return "redirect:/";
 	}
 
