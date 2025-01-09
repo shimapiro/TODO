@@ -31,8 +31,8 @@
 			<span th:text="${task.description}"></span>
 			<span th:text="${task.dueDate}"></span>
 
-			<a th:href="@{'/toggle/'+${task.id}}" th:if="${!task.completed}">完了にする</a>
-			<a th:href="@{'/toggle/'+${task.id}}" th:if="${task.completed}">未完了にする</a>
+			<a th:href="@{'/complete/'+${task.id}}" th:if="${!task.completed}" class="btn-complete">完了して削除</a>
+<!--			<a th:href="@{'/toggle/'+${task.id}}" th:if="${task.completed}" class="btn-toggle">未完了にする</a>-->
 
 			<a th:href="@{'/details/'+${task.id}}">詳細を見る</a>
 			<a th:href="@{'/delete/' + ${task.id}}">削除</a>

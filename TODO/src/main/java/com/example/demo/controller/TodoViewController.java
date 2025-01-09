@@ -72,15 +72,15 @@ public class TodoViewController {
 		return "redirect:/";
 	}
 
-	@GetMapping("/toggle/{id}")
-	public String toggleTaskStautus(@PathVariable Integer id) {
-		Todo todo = todoService.getTodoById(id).orElse(null);
-		if (todo != null) {
-			todo.setCompleted(!todo.isCompleted());
-			todoService.createOrUpdateTodo(todo);
-		}
-		return "redirect:/";
-	}
+//	@GetMapping("/toggle/{id}")
+//	public String toggleTaskStautus(@PathVariable Integer id) {
+//		Todo todo = todoService.getTodoById(id).orElse(null);
+//		if (todo != null) {
+//			todo.setCompleted(!todo.isCompleted());
+//			todoService.createOrUpdateTodo(todo);
+//		}
+//		return "redirect:/";
+//	}
 
 	@GetMapping("/details/{id}")
 	public String viewTaskDetails(@PathVariable Integer id, Model model) {
@@ -91,5 +91,13 @@ public class TodoViewController {
 		}
 		return "redirect:/";
 	}
+	
+	
+	@GetMapping("/complete/{id}")
+	public String completeAndDeleteTask(@PathVariable Integer id) {
+		todoService.deleteTodoById(id);
+		return "redirect:/";
+	}
+	
 
 }
