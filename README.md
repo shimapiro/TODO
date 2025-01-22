@@ -40,24 +40,24 @@ https://github.com/user-attachments/assets/7a62d893-f199-4726-961b-28077428ea7e
    cd todo-app
    ```
 2. **環境変数の設定**
-   - プロジェクトのルートに `.env` ファイルを作成し、以下を設定してください：
+プロジェクトのルートに `.env` ファイルを作成し、以下を設定してください：
      ```env
      SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/todo_db
      SPRING_DATASOURCE_USERNAME=your_username
      SPRING_DATASOURCE_PASSWORD=your_password
      ```
-3. **Dockerコンテナの起動**
+4. **Dockerコンテナの起動**
    ```bash
    docker-compose up -d
    ```
-4. **アプリのビルドと実行**
+5. **アプリのビルドと実行**
    ```bash
    mvn clean package
    java -jar target/TODO-0.0.1-SNAPSHOT.jar
    ```
-5. **アプリへのアクセス**
-   - ブラウザで https://todo-c98a.onrender.com にアクセス
-   - **注意:** Renderの無料プランにデプロイしたので、一定時間アクセスがないとサーバーがスリープ状態になり、最初のアクセス時に起動まで数十秒かかることがあります。
+6. **アプリへのアクセス**
+ブラウザで https://todo-c98a.onrender.com にアクセス
+**注意:** Renderの無料プランにデプロイしたので、一定時間アクセスがないとサーバーがスリープ状態になり、最初のアクセス時に起動まで数十秒かかることがあります。
 
 ## 利用方法
 - タスクの一覧表示
