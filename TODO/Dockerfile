@@ -1,5 +1,5 @@
 # ベースとなる公式のOpenJDKイメージを使用
-FROM maven:3.8.6-openjdk-17 as builder
+FROM maven:3.8.8-openjdk-17-slim as builder
 
 # 作業ディレクトリを設定
 WORKDIR /app
