@@ -4,9 +4,12 @@ FROM maven:3.9.5-eclipse-temurin-17 AS builder
 # 作業ディレクトリを設定
 WORKDIR /app
 
-# POMファイルとソースコードをコンテナにコピー
-COPY ./pom.xml .
-COPY ./src ./src
+# POMファイルをコピー
+COPY TODO/pom.xml ./pom.xml
+
+# ソースコードをコピー
+COPY TODO/src ./src
+
 
 # Mavenを使用してプロジェクトをビルド
 RUN mvn clean package -DskipTests
