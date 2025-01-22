@@ -39,8 +39,10 @@ public class TodoService {
 	
 	public List<Todo> getsorTodos(String sortBy){
 		if ("dueDate".equals(sortBy)) {
+			// 締切日を昇順（古い順にソート）
 			return todoRepository.findAllByOrderByDueDateAsc();
 		}else if ("priority".equals(sortBy)) {
+			// 優先度を降順（高い順にソート）
 			return todoRepository.findAllByOrderByPriorityDesc();
 		}
 		

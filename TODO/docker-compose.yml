@@ -1,28 +1,13 @@
 version: '3.8'
-services:
-  db:
-    image: mysql:8.0
-    container_name: todo-mysql
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: Kinoko511
-      MYSQL_DATABASE: TODO
-    ports:
-      - "3307:3306"
-    volumes:
-      - mysql_data:/var/lib/mysql
 
+services:
   app:
     build: .
     container_name: todo-app
-    depends_on:
-      - db
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/TODO
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: Kinoko511
+      SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL}
+      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: ${SPRING_DATASOURCE_DRIVER_CLASS_NAME}
     ports:
       - "8080:8080"
-
-volumes:
-  mysql_data:
